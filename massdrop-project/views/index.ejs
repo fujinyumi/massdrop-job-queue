@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Massdrop Job Queue</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Your Jobs</h1>
+	<form method="GET">
+	<div id="enterurl">
+	<input type="text" id="urlbar" name="urlpath">
+	<input type="submit" value="Add Job">
+	</div>
+	<div id="jobscontainer">
+		<%  if(jobs != null) {
+			for(let i = 0; i < jobs.length; i++) {
+				job = jobs[i];
+		%>
+			<div class="job"><%= job.url %>
+			<button name="checkstatus" value="<%= job.id %>">Check Status/See Result</button></div>
+		<% }
+			}%>
+	</div>
+	<div id="htmlcontainer">
+		<% if(!htmlContent) console.log("empty"); %>
+		<div style="word-wrap: break-word;"><%= htmlContent %></div>
+	</div>
+	</form>
+  </body>
+</html>
